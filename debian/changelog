@@ -1,5 +1,6 @@
-cuse4bsd (0~svn2434-2) UNRELEASED; urgency=low
+cuse4bsd (0~svn2434-2) unstable; urgency=low
 
+  * Team upload.
   * Switch cuse4bsd-dkms to kfreebsd-any.
 
  -- Robert Millan <rmh@debian.org>  Mon, 07 Oct 2013 23:15:42 +0200
