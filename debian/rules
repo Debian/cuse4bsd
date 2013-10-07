@@ -13,6 +13,8 @@ override_dh_auto_build:
 	env -u MAKEFLAGS LDFLAGS="-z relro" COPTS="$(CFLAGS)" PATH=/usr/lib/freebsd:$(PATH) \
 	  make -f Makefile.lib
 
+override_dh_auto_test:
+
 override_dh_auto_install:
 	env -u MAKEFLAGS PATH=/usr/lib/freebsd:$(PATH) \
 	  make -f Makefile.lib DESTDIR=$(CURDIR)/debian/libcuse4bsd-dev install
