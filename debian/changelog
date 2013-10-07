@@ -1,0 +1,5 @@
+cuse4bsd (0~svn2434-1) unstable; urgency=low
+
+  * Initial release. (Closes: #688141)
+
+ -- Christoph Egger <christoph@debian.org>  Wed, 19 Sep 2012 10:48:29 -0700

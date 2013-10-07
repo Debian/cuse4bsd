@@ -1,0 +1,43 @@
+Source: cuse4bsd
+Section: libs
+Priority: optional
+Maintainer: GNU/kFreeBSD Maintainers <debian-bsd@lists.debian.org>
+Uploaders: Christoph Egger <christoph@debian.org>
+Build-Depends: debhelper (>= 7.0.50~),
+ freebsd-buildutils,
+ libbsd-dev,
+ kldutils,
+ dkms
+Standards-Version: 3.9.4
+Homepage: http://www.selasky.org/hans_petter/cuse4bsd/
+
+Package: libcuse4bsd-dev
+Section: libdevel
+Architecture: kfreebsd-any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libcuse4bsd1 (= ${binary:Version})
+Description: Characterdevices in USErspace
+ Simple interface for userspace programs to export a virtual
+ character device to kFreeBSD.
+ .
+ This package contains the development files for the libcuse4bsd
+ shared library
+
+Package: libcuse4bsd1
+Architecture: kfreebsd-any
+Depends: ${shlibs:Depends}, ${misc:Depends}, kldutils
+Recommends: cuse4bsd-dkms
+Description: Filesystem in USErspace (utilities)
+ Simple interface for userspace programs to export a virtual
+ character device to kFreeBSD.
+ .
+ This package contains the libcuse4bsd shared library
+
+Package: cuse4bsd-dkms
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ dkms (>= 2.2.0.1-3),
+ freebsd-buildutils (>= 8.2-2),
+ kfreebsd-headers-9 | kfreebsd-headers,
+Description: CUSE module for kFreeBSD
+ This package provides the CUSE module for kernel of FreeBSD.
+

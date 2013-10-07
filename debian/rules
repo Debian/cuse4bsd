@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --with dkms
+
+override_dh_auto_clean:
+	env -u MAKEFLAGS PATH=/usr/lib/freebsd:$(PATH) \
+	  make -f Makefile.lib clean
+
+override_dh_auto_build:
+	env -u MAKEFLAGS LDFLAGS="-z relro" COPTS="$(CFLAGS)" PATH=/usr/lib/freebsd:$(PATH) \
+	  make -f Makefile.lib
+
+override_dh_auto_install:
+	env -u MAKEFLAGS PATH=/usr/lib/freebsd:$(PATH) \
+	  make -f Makefile.lib DESTDIR=$(CURDIR)/debian/libcuse4bsd-dev install
+	mv $(CURDIR)/debian/libcuse4bsd-dev/usr/lib/libcuse4bsd.so.1 $(CURDIR)/debian/libcuse4bsd1/usr/lib
+	mkdir -p $(CURDIR)/debian/cuse4bsd-dkms/usr/src/cuse4bsd-SVN
+	cp cuse4bsd_kmod.c cuse4bsd.h Makefile.kmod $(CURDIR)/debian/cuse4bsd-dkms/usr/src/cuse4bsd-SVN
+
+override_dh_dkms:
+	dh_dkms -V SVN
