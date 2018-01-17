@@ -10,8 +10,8 @@ Build-Depends: debhelper (>= 7.0.50~),
  dkms
 Standards-Version: 3.9.4
 Homepage: http://www.selasky.org/hans_petter/cuse4bsd/
-Vcs-Browser: https://salsa.debian.org/kfreebsd-team/ctfutils
-Vcs-Git: https://salsa.debian.org/kfreebsd-team/ctfutils.git
+Vcs-Browser: https://salsa.debian.org/kfreebsd-team/cuse4bsd
+Vcs-Git: https://salsa.debian.org/kfreebsd-team/cuse4bsd.git
 
 Package: libcuse4bsd-dev
 Section: libdevel
